@@ -14,3 +14,7 @@ nullmailer
 # colorlog + remote logging
 ccze
 rsyslog
+# needed for elasticsearch
+openjdk8
+# kibana parts
+nodejs
