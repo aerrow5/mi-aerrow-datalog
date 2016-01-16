@@ -7,16 +7,13 @@ pushd /tmp
 wget --no-check-certificate https://download.elastic.co/kibana/kibana/kibana-${version}-linux-x64.tar.gz
 popd
 pushd /opt/local
-tar xvf /tmp/elasticsearch-${version}.tar.gz
-mv /opt/local/elasticsearch-${version} /opt/local/elasticsearch
+tar xvf /tmp/kibana-${version}-linux-x64.tar.gz
+mv /opt/local/kibana-${version}-linux-x64 /opt/local/kibana
 
-test -d /var/tmp/elasticsearch || mkdir -p /var/tmp/elasticsearch && chown elastic /var/tmp/elasticsearch
-test -d /opt/local/elasticsearch/logs || mkdir -p /opt/local/elasticsearch/logs && chown elastic /opt/local/elasticsearch/logs
-test -d /opt/local/elasticsearch/plugins || mkdir -p /opt/local/elasticsearch/plugins && chown elastic /opt/local/elasticsearch/plugins
-test -d /opt/local/elasticsearch/config/scripts || mkdir -p /opt/local/elasticsearch/config/scripts && chown elastic /opt/local/elasticsearch/config/scripts
+# hardcode directory in kibana script:
+sed -i 's/\(NODE="${DIR}\)/DIR="\/usr" #hardcode in script\r\n\1/' kibana
 
-test -d /data/elasticsearch || mkdir -p /data/elasticsearch && chown elastic /data/elasticsearch
-test -a /opt/local/elasticsearch/data || ln -s /data/elasticsearch data
+#test -d /var/tmp/elasticsearch || mkdir -p /var/tmp/elasticsearch && chown elastic /var/tmp/elasticsearch
 
 #mkdir /opt/local/UniFi/{logs,work} && chown unifi /opt/local/UniFi/{logs,work}
 
