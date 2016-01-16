@@ -1,3 +1,6 @@
 # List packages to add to your image one per line.
 dtracetools
 htop
+# needed for elasticsearch:
+openjdk8
+nodejs
