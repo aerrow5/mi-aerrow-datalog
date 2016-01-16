@@ -15,6 +15,10 @@ pkg_admin rebuild
 pkgin -y up
 pkgin -y clean
 
+# Add elastic group & user
+groupadd -g 823 elastic
+useradd -g 823 -d /tmp -s /usr/bin/false elastic
+
 echo "* Create rsyslog.d folder for extra configuration files"
 mkdir -p /opt/local/etc/rsyslog.d
 
