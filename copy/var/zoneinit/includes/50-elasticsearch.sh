@@ -8,6 +8,7 @@ wget --no-check-certificate https://download.elasticsearch.org/elasticsearch/rel
 popd
 pushd /opt/local
 tar xvf /tmp/elasticsearch-${version}.tar.gz
+mv /opt/local/elasticsearch-${version} /opt/local/elasticsearch
 
 #test -d /srv/unifi/data || mkdir -p /srv/unifi/data && chown unifi /srv/unifi/data
 #test -d /srv/unifi/run || mkdir -p /srv/unifi/run && chown unifi /srv/unifi/run
