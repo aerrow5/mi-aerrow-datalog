@@ -10,12 +10,17 @@ pushd /opt/local
 tar xvf /tmp/elasticsearch-${version}.tar.gz
 mv /opt/local/elasticsearch-${version} /opt/local/elasticsearch
 
-#test -d /srv/unifi/data || mkdir -p /srv/unifi/data && chown unifi /srv/unifi/data
-#test -d /srv/unifi/run || mkdir -p /srv/unifi/run && chown unifi /srv/unifi/run
+test -d /var/tmp/elasticsearch || mkdir -p /var/tmp/elasticsearch && chown elastic /var/tmp/elasticsearch
+test -d /opt/local/elasticsearch/logs || mkdir -p /opt/local/elasticsearch/logs && chown elastic /opt/local/elasticsearch/logs
+test -d /opt/local/elasticsearch/plugins || mkdir -p /opt/local/elasticsearch/plugins && chown elastic /opt/local/elasticsearch/plugins
+test -d /opt/local/elasticsearch/config/scripts || mkdir -p /opt/local/elasticsearch/config/scripts && chown elastic /opt/local/elasticsearch/config/scripts
+
+test -d /data/elasticsearch || mkdir -p /data/elasticsearch && chown elastic /data/elasticsearch
+test -a /opt/local/elasticsearch/data || ln -s /data/elasticsearch data
 
 #mkdir /opt/local/UniFi/{logs,work} && chown unifi /opt/local/UniFi/{logs,work}
 
 popd
 
 # svccfg import not needed, as it is already done by mdata-init
-# svcadm enable svc:/network/unifi:default
+svcadm enable srv:/pkgsrc/elasticsearch:default
