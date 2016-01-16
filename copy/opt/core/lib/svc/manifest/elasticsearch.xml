@@ -20,7 +20,7 @@
         <envvar name='JAVA_HOME' value='/opt/local/java/openjdk8' />
       </method_environment>
     </method_context>
-    <exec_method name="start" type="method" exec="/opt/elasticsearch/bin/elasticsearch"
+    <exec_method name="start" type="method" exec="/opt/local/elasticsearch/bin/elasticsearch"
 timeout_seconds="3600" />
     <exec_method type="method" name="stop" exec=":kill" timeout_seconds="60" />
     <exec_method type="method" name="refresh" exec=":kill -HUP" timeout_seconds="60" />
@@ -28,8 +28,8 @@ timeout_seconds="3600" />
       <propval name="min_heap" type="astring" value="256m" />
       <propval name="max_heap" type="astring" value="1g" />
       <propval name="store_type" type="astring" value="niofs" />
-      <propval name="class_path" type="astring" value="/opt/elasticsearch/lib/elasticsearch-2.1.1.jar:/opt/elasticsearch/lib/elasticsearch/*" />
-      <propval name="config_file" type="astring" value="/opt/elasticsearch/config/elasticsearch.yml" />
+      <propval name="class_path" type="astring" value="/opt/local/elasticsearch/lib/elasticsearch-2.1.1.jar:/opt/local/elasticsearch/lib/elasticsearch/*" />
+      <propval name="config_file" type="astring" value="/opt/local/elasticsearch/config/elasticsearch.yml" />
       <propval name="java_opts" type="astring" value="-Djava.awt.headless=true -Xss256k -XX:+DisableExplicitGC -XX:+HeapDumpOnOutOfMemoryError 
 -XX:+UseCMSInitiatingOccupancyOnly -XX:+UseConcMarkSweepGC -XX:+UseParNewGC -XX:CMSInitiatingOccupancyFraction=75" />
     </property_group>
