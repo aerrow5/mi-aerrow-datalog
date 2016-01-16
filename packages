@@ -18,3 +18,5 @@ rsyslog
 openjdk8
 # kibana parts
 nodejs
+# beats
+go
