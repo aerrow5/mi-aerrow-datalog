@@ -1,10 +1,10 @@
 #!/bin/bash
 
-# This script was tested with 2.2-1 so get that by default
-version='2.1.1'
+# This script was tested with 4.3-1 so get that by default
+version='4.3.1'
 
 pushd /tmp
-wget --no-check-certificate https://download.elasticsearch.org/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/${version}/elasticsearch-${version}.tar.gz
+wget --no-check-certificate https://download.elastic.co/kibana/kibana/kibana-${version}-linux-x64.tar.gz
 popd
 pushd /opt/local
 tar xvf /tmp/elasticsearch-${version}.tar.gz
