@@ -11,7 +11,7 @@ tar xvf /tmp/kibana-${version}-linux-x64.tar.gz
 mv /opt/local/kibana-${version}-linux-x64 /opt/local/kibana
 
 # hardcode node exec in kibana script:
-sed -i 's/\(test -x\)/NODE="\/opt\/local\/bin\/node" #hardcode solaris node in script \r\n\1/' kibana
+sed -i 's/\(test -x\)/NODE="\/opt\/local\/bin\/node" #hardcode solaris node in script \r\n\1/' /opt/local/kibana/bin/kibana
 chown -R elastic:elastic /opt/local/kibana
 
 test -d /var/tmp/kibana || mkdir -p /var/tmp/kibana && chown elastic:elastic /var/tmp/kibana
