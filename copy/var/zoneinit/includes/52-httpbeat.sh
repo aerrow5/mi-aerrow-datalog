@@ -9,11 +9,12 @@ export GOPATH=${HOME}/go
 
 pushd /${GOPATH}
 go get -u ${gh_dir}
-curl -XPUT http://localhost:9200/_template/${beatprog} -d @${GOPATH}/src/${gh_dir}/etc/${beatprog}.template.json
 
 test -d /etc/${beatprog} || mkdir -p /etc/${beatprog} && chown elastic:elastic /etc/${beatprog}
-cp ${GOPATH}/src/${gh_dir}/etc/pingbeat-example.yml /etc/pingbeat/pingbeat.yml
-ln -s ${GOPATH}/bin/pingbeat /etc/pingbeat/pingbeat
+cp ${GOPATH}/src/${gh_dir}/etc/${beatprog}.example.yml /etc/${beatprog}/${beatprog}.yml
+ln -s ${GOPATH}/bin/${beatprog} /etc/${beatprog}/${beatprog}
+
+curl -XPUT http://localhost:9200/_template/${beatprog} -d @${GOPATH}/src/${gh_dir}/etc/${beatprog}.template.json
 
 popd
 
